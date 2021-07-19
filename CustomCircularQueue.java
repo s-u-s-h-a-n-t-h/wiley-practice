@@ -6,9 +6,10 @@ public class CustomCircularQueue {
 	int[] circularQ;
 	
 	public CustomCircularQueue(int size){
-		circularQ = new int[size];
-		front = -1;
-		rear = -1;
+		this.size = size;
+		this.circularQ = new int[size];
+		this.front = -1;
+		this.rear = -1;
 	}
 	
 	public void enqueue(int ele) {
@@ -20,8 +21,8 @@ public class CustomCircularQueue {
 			this.front = 0;
 		}
 		
-		this.rear =  (this.rear+1)%size;
-		circularQ[this.rear] = ele;
+		this.rear =  (this.rear+1)%this.size;
+		this.circularQ[this.rear] = ele;
 	}
 	
 	public int dequeue() {
