@@ -1,30 +1,50 @@
 package wiley.intern.intro;
 
-import java.util.ArrayList;
 
 public class CustomStack {
-	public ArrayList<Integer> stack = new ArrayList<Integer>();
+	int i;
+	int size;
+	public int[] stack;
+	
+	public CustomStack(int size) {
+		this.i = -1;
+		this.size = size;
+		stack = new int[size];
+	}
+	
 	
 	public boolean isEmpty() {
-		return (this.stack.size()==0);
+		return (this.i<0);
+	}
+	
+	public boolean isFull() {
+		return (this.i==this.size-1);
 	}
 	
 	public void push(int ele) {
-		this.stack.add(ele);
+		if(this.isFull()) {
+			System.out.println("Stack over flow");
+			return;
+		}
+		
+		this.i++;
+		this.stack[i] = ele;
 	}
 	
 	public int pop() {
 		if(this.isEmpty()) {
 			return -1;
 		}
-		return this.stack.remove(this.stack.size()-1);
+		int ele = this.stack[this.i];
+		this.i--;
+		return ele;
 	}
 	
 	public int peek() {
 		if(this.isEmpty()) {
 			return -1;
 		}
-		return this.stack.get(this.stack.size()-1);
+		return this.stack[this.i];
 	}
 }
 
