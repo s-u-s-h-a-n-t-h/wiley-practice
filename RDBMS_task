@@ -1,0 +1,71 @@
+Employee
+
+-> No multivalued attributes.
+-> Primary Key (Id) exists.
+-> All records are uniquely identified
+
+-->Its in 1NF
+
+PK
+Id   name   project        company     cost_incurred_in_project
+
+1    Emp1   1st project     MNC1            1000
+
+2    Emp2   1st project     MNC1            1000
+
+3    Emp3   2nd project     MNC2             800
+
+4    Emp4   1st project     MNC1            1000
+
+5    Emp5   2nd project     MNC2             800
+
+6    Emp6   3rd project     MNC3            2000
+
+-> Here employee Id is primary key and no other candidate keys can be found.
+-> So no "partial dependencies" are observed.
+--> Its in 2NF
+
+
+-> Here a project is taken up by only one company and cost is also dependent on project.
+-> We can clearly see the "transitive dependency", project -> company, cost.
+
+breaking it down to 2 tables, 1. Employee, 2. Project table.
+
+Project Table:
+
+PK
+Id    name    		  company     cost
+
+P1    1st Project      MNC1       1000
+
+P2    2nd Project      MNC2        800
+
+P3    3rd Project      MNC3       2000
+
+
+Employee Table:
+
+PK
+Id    name     projectId
+
+1     Emp1      P1
+
+2     Emp2      P1
+
+3     Emp3      P2
+        .
+        .
+        .
+        .
+        .
+        .
+6     Emp6      P3
+
+--> Now its in 3NF.
+
+
+
+      
+
+
+
